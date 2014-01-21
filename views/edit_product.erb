@@ -1,7 +1,7 @@
 <form action="/products/<%=@product["id"]%>" method="post">
   <p>
     <label>Name:</label>
-    <input type="text" name="name" value="<%=@product["name"]%>">
+    <input type="text" name="p_name" value="<%=@product["p_name"]%>">
   </p>
 
   <p>
@@ -14,8 +14,23 @@
     <textarea name="description"><%= @product["description"]%></textarea>
   </p>
 
+
+<!-- figure this out -->
   <p>
-    <input type="submit" name="" value="Create the new product.">
+    <label>Categories:</label> <br> 
+        <% @product_category.each do |item| %>
+            <%= item["c_name"]%> 
+        <form action="/products/<%= @product["id"] %>/<%= @product["id"] %>/destroy" method="post">
+          <input type="submit" name="" value="Delete this product.">
+        </form>
+
+        <%end%>
+  </p>
+
+
+
+  <p>
+    <input type="submit" name="" value="Update the product.">
   </p>
 </form>
 
